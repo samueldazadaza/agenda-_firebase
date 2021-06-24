@@ -31,3 +31,9 @@ app.post('/agregar', (req, res) => {
     db.collection('agenda_contactos').add(contacto)
     res.redirect('/')
 })
+
+app.get('/borrar/:id', (req, res) => {
+    let id = req.params.id
+    db.collection('agenda_contactos').doc(id).delete()
+    res.redirect('/')
+})

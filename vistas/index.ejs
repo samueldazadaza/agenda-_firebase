@@ -14,10 +14,10 @@
         <input type="text" name="direccion" placeholder="direccion">
         <input type="text" name="telefono" placeholder="telefono">
         <button type="submit">Agregar Contacto</button>
-
         <br>
         <% contactos.map(item => { %>
             <p> <%= item.datos.nombre %> </p>
+            <a href="borrar/<%= item.id %>"> borrar </a>
         <% }) %>
 
     </form>
