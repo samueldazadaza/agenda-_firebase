@@ -37,3 +37,11 @@ app.get('/borrar/:id', (req, res) => {
     db.collection('agenda_contactos').doc(id).delete()
     res.redirect('/')
 })
+
+app.get('/contacto/:id', async(req, res) => {
+    let id = req.params.id
+    const peticion = await db.collection('agenda_contactos').doc(id).get()
+    const contacto = { id:id, datos:peticion.data()}
+    console.log(contacto)
+    res.render('contacto', {contacto})
+})
