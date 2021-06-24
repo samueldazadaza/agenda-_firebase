@@ -13,9 +13,12 @@ app.set('view engine', 'ejs')
 app.use(express.static(' ./estilos'))
 app.use(express.urlencoded({extended:true})) 
 
-app.get('/', (req, res) => {
-    console.log(db)
-    res.render('index')
+app.get('/', async (req, res) => {
+    const peticion = await db.collection('agenda_contactos').get()
+    const {docs} = peticion
+    const contactos = docs.map(contacto => ({id:contacto.id, datos:contacto.data()}))
+    console.log(contactos)
+    res.render('index', {contactos})
 })
 
 app.post('/agregar', (req, res) => {
