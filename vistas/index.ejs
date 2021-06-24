@@ -5,21 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>📚Agenda de Contactos</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-    <h2>AGENDA SD</h2>
-    <form action="agregar" method="post">
+    <h2 class="flex mx-auto bg-blue-900 text-gray-200 px-5 py-3">📕AGENDA DE CONTACTOS</h2>
+    <form action="agregar" method="post" class="m-5">
         <input type="text" name="nombre" placeholder="nombre">
         <input type="text" name="numero" placeholder="numero">
         <input type="text" name="direccion" placeholder="direccion">
         <input type="text" name="telefono" placeholder="telefono">
-        <button type="submit">Agregar Contacto</button>
-        <br>
-        <% contactos.map(item => { %>
-            <a href="contacto/<%= item.id %>"><%= item.datos.nombre %> </a>
-            <a href="borrar/<%= item.id %>">borrar </a>
-        <% }) %>
-
+        <button type="submit" class="btn bg-green-300 px-4 rounded">Agregar Contacto</button>
     </form>
+
+    <div class="bg-gray-200 m-5 p-5">
+        <h3>Numeros registrados:</h3>
+        <% contactos.map(item => { %>
+            <div class="bg-red-200 m-2 p-2">
+                <a href="contacto/<%= item.id %>"><%= item.datos.nombre %> </a>
+                <a class="text-gray-200 btn bg-red-700 rounded" href="borrar/<%= item.id %>">borrar </a>
+            </div>
+        <% }) %>
+    </div>
 </body>
 </html>
