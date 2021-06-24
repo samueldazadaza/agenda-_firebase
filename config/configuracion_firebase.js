@@ -1,15 +1,15 @@
 import firebase from 'firebase'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDCnY7HcV4aSP0-6us4jQn9rBen937m408",
-    authDomain: "contactos-firebase-60468.firebaseapp.com",
-    projectId: "contactos-firebase-60468",
-    storageBucket: "contactos-firebase-60468.appspot.com",
-    messagingSenderId: "1038992614260",
-    appId: "1:1038992614260:web:1635d9512ab653672ac221",
-    measurementId: "G-61V43NQ9B9"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+  apiKey: "AIzaSyBfWg1d_f4j_tifVI93uoPo_r3ilPPqdcY",
+  authDomain: "contact-1b590.firebaseapp.com",
+  projectId: "contact-1b590",
+  storageBucket: "contact-1b590.appspot.com",
+  messagingSenderId: "161790296440",
+  appId: "1:161790296440:web:c535963a449f6aaef4c88d",
+  measurementId: "G-NKJV73NDB4"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore()
   export {db}
