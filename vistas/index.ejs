@@ -16,8 +16,8 @@
         <button type="submit">Agregar Contacto</button>
         <br>
         <% contactos.map(item => { %>
-            <p> <%= item.datos.nombre %> </p>
-            <a href="borrar/<%= item.id %>"> borrar </a>
+            <a href="contacto/<%= item.id %>"><%= item.datos.nombre %> </a>
+            <a href="borrar/<%= item.id %>">borrar </a>
         <% }) %>
 
     </form>
