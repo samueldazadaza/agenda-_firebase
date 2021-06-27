@@ -3,8 +3,8 @@ import {db} from './config/configuracion_firebase.js'
 
 const app = express()
 
-app.listen('8002', (req, res) => {
-    console.log('aplicacion iniciada en localhost://8002')
+app.listen('8000', (req, res) => {
+    console.log('La aplicacion fue iniciada correctamente en: 😎🎯 http://localhost:8000')
 })
 
 app.set('views', './vistas' )
@@ -17,7 +17,6 @@ app.get('/', async (req, res) => {
     const peticion = await db.collection('agenda_contactos').get()
     const {docs} = peticion
     const contactos = docs.map(contacto => ({id:contacto.id, datos:contacto.data()}))
-    console.log(contactos)
     res.render('index', {contactos})
 })
 
@@ -42,6 +41,5 @@ app.get('/contacto/:id', async(req, res) => {
     let id = req.params.id
     const peticion = await db.collection('agenda_contactos').doc(id).get()
     const contacto = { id:id, datos:peticion.data()}
-    console.log(contacto)
     res.render('contacto', {contacto})
 })
