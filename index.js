@@ -2,7 +2,7 @@ import express, { response } from 'express'
 import {db} from './config/configuracion_firebase.js'
 
 const app = express()
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 8000
 
 app.listen(PORT, (req, res) => {
     console.log('La aplicacion fue iniciada correctamente en: 😎🎯 http://localhost:8000')
