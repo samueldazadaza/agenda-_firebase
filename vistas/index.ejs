@@ -22,12 +22,24 @@
             <div class="p-3 flex justify-center border-t-2">
                 <div class="shadow-2xl px-4 py-4 w-96 border-2 border-gray-300 flex flex-col rounded-xl bg-red-100">
                     <h3 class="text-center font-bold mb-4">Contactos Registrados:</h3>
-                    <% contactos.map(item => { %>
-                        <div class="border-b border-gray-400 flex justify-between p-1 content-center">
-                            <a class="rounded-3xl px-2 text-blue-600 hover:bg-green-700 hover:text-white hover:shadow-2xl" href="contacto/<%= item.id %>"><%= item.datos.nombre %> - <%= item.datos.numero %>  </a>
-                            <a class="px-2 text-gray-200 btn bg-red-700 rounded" href="borrar/<%= item.id %>">Borrar </a>
-                        </div>
-                    <% }) %>
+                        <table class="table-fixed">
+                            <thead>
+                              <tr>
+                                <th class="w-1/2">Nombre</th>
+                                <th class="w-1/2">ID</th>
+                                <th class="w-1/2 text-center">Borrar</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <% contactos.map(item => { %>
+                                    <tr>
+                                        <td class="border border-gray-500 px-2 text-blue-600 hover:bg-green-700 hover:text-white"> <a href="borrar/<%= item.id %>"> <%= item.datos.nombre %> </a></td>
+                                        <td class="border border-gray-500 hover:bg-green-700 hover:text-white"> <a href="borrar/<%= item.id %>"> <%= item.datos.numero %> </a></td>
+                                        <td class="border border-gray-500"><a class="px-2 text-gray-200 btn bg-red-700 rounded" href="borrar/<%= item.id %>">Borrar </a></td>
+                                    </tr>
+                                <% }) %>
+                            </tbody>
+                          </table>
                 </div>
             </div>
 </body>
